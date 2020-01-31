@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paper-Stone-Scisors</title>
+    <link rel="stylesheet" type="text/css" href="sass\style.css" />
+  </head>
+  <body>
+    <div>
+      <button id="gra">Zagramy?</button>
+    </div>
+    <br />
+    <div>
+      <button id="paper-button" data-move="paper" class="player-move">
+        Paper
+      </button>
+      <button id="stone-button" data-move="stone" class="player-move">
+        Stone
+      </button>
+      <button id="scisors-button" data-move="scisors" class="player-move">
+        Scisors
+      </button>
+    </div>
+    <br />
+    <div class="move-message js-hidden"><span id="player-choice"></span>
+    </div>
+    <div class="move-message js-hidden"><span id="computer-choice"></span>
+    </div>
+    <br />
+    <div class="move-message js-hidden" id="winner-looser"></div>
+    <div id="output"></div>
+    <br />
+    <div class="move-message js-hidden" id="wynik">Wynik</div>
+    <br />
+    <div class="move-message js-hidden" id="player-score"></div>
+    <div class="move-message js-hidden" id="computer-score"></div>
+    <br />
+    <!-- MODAL SECTION -->
+    <div id="modal-wrapper" class="container">
+      <div class="overlay" id="modal-overlay-winner">
+        <div class="modal" id="modal-winner">
+          <a href="#" class="close">x</a>
+          <header>Wynik Gry</header>
+          <div class="content">
+            <p id="winner"></p>
+            <p id="round-winner"></p>
+          </div>
+        </div>
+      </div>
+      <div class="overlay" id="modal-overlay-start">
+        <div class="modal" id="modal-start">
+          <a href="#" class="close">x</a>
+          <header>Zagrajmy!</header>
+          <div class="content">
+            <input type="text" id="player-name" placeholder="Your Name" />
+            <input type="number" id="rounds" placeholder="Liczba rund" />
+            <button id="start">Start</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
