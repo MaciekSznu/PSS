@@ -26,9 +26,9 @@ const roundsToPlay = document.getElementById('rounds');
 
 const buttonPaper = document.getElementById('paper-button');
 const buttonStone = document.getElementById('stone-button');
-const buttonScisors = document.getElementById('scisors-button');
+const buttonScissors = document.getElementById('scissors-button');
 const buttonGra = document.getElementById('gra');
-const gameButtons = [buttonPaper, buttonStone, buttonScisors];
+const gameButtons = [buttonPaper, buttonStone, buttonScissors];
 const messages = document.querySelectorAll('.move-message');
 
 output.innerHTML = `Kliknij "Zagramy?" aby wybrac ilość rund! <br><br>`;
@@ -41,7 +41,7 @@ const toggleMessagesVisibility = () => messages.forEach(message => message.class
 const disableButtons = () => {
 	buttonPaper.disabled = true;
 	buttonStone.disabled = true;
-	buttonScisors.disabled = true;
+	buttonScissors.disabled = true;
 	toggleButtonsColor();
 }
 disableButtons();
@@ -49,7 +49,7 @@ disableButtons();
 const enableButtons = () => {
 	buttonPaper.disabled = false;
 	buttonStone.disabled = false;
-  buttonScisors.disabled = false;
+  buttonScissors.disabled = false;
   (() => gameButtons.forEach(button => button.classList.contains('disabled') ? button.classList.remove('disabled') : null))();
 };
 
@@ -70,7 +70,7 @@ for ( let m = 0; m < selectedMove.length; m++ ) {
       playerMove = `Stone`;
     }
     else {
-      playerMove = `Scisors`;
+      playerMove = `Scissors`;
     }
     roundWinner(playerMove, getComputerMoveDescription);
     gameOver();
@@ -90,7 +90,7 @@ const getComputerMoveDescription = () => {
 		computerChoiceText.innerHTML = `Computer played Stone`;
 	}
 	else {
-		computerChoiceText.innerHTML = `Computer played Scisors`;
+		computerChoiceText.innerHTML = `Computer played Scissors`;
 	};
 	return computerChoice;
 };
@@ -140,16 +140,16 @@ const roundWinner = (playerMove, getComputerMoveDescription) => {
 
 	if (computer == 1){	compPlayed = 'Paper';}
 	else if (computer == 2){	compPlayed = 'Stone';}
-  else { compPlayed = 'Scisors';}
+  else { compPlayed = 'Scissors';}
   
-	if ((player === 'Paper' && computer == 2) || (player === 'Stone' && computer == 3) || (player === 'Scisors' && computer == 1)){
+	if ((player === 'Paper' && computer == 2) || (player === 'Stone' && computer == 3) || (player === 'Scissors' && computer == 1)){
 		moveWinner.innerHTML = 'YOU WIN';
 		params.playerScore++;
 		playerScore.innerHTML = params.playerScore;
 		params.progress.push({content: `YOU WIN! You played - ${player}  Computer played - ${compPlayed}. Result: ${params.playerScore} - ${params.compScore}`});
 		progressCount();
 	}
-	else if ((player === 'Paper' && computer == 1) || (player === 'Stone' && computer == 2) || (player === 'Scisors' && computer == 3)) {
+	else if ((player === 'Paper' && computer == 1) || (player === 'Stone' && computer == 2) || (player === 'Scissors' && computer == 3)) {
 		moveWinner.innerHTML = 'DRAW';
 		params.progress.push({content: 'DRAW'});
 		progressCount();
